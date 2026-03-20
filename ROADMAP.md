@@ -1,6 +1,6 @@
 # Cross-Tech AEC Skill Package — ROADMAP
 
-## Current Status: B6 DONE — Wave A Validated, Ready for Publication
+## Current Status: B7 IN PROGRESS — Publishing Wave A
 
 > **NOTE:** This package bridges other AEC skill packages. 4 of 8 dependent packages are complete; 4 are skeleton repos. Core skills and automation skills can be built NOW.
 
