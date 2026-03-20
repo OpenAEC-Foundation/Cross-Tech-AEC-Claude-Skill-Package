@@ -3,363 +3,219 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cross-Technology AEC Integration — Claude Skill Package</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<title>Social Preview Banner</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
   body {
-    width: 1280px;
-    height: 640px;
-    overflow: hidden;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
-    color: #ffffff;
-    position: relative;
+    background: #2A2A32;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
   }
 
-  /* Subtle grid pattern overlay */
-  body::before {
+  .banner {
+    width: 1280px;
+    height: 640px;
+    background: #2A2A32;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .top-strip {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0EA5E9 0%, #E94560 50%, #0EA5E9 100%);
+  }
+
+  .banner::before {
     content: '';
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
-    z-index: 0;
+      linear-gradient(rgba(250,250,249,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(250,250,249,0.02) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
   }
 
-  /* Glow effects */
-  .glow-1 {
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(233,69,96,0.12) 0%, transparent 70%);
-    top: -100px;
-    right: 100px;
-    z-index: 0;
-  }
-  .glow-2 {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(15,52,96,0.4) 0%, transparent 70%);
-    bottom: -50px;
-    left: 50px;
-    z-index: 0;
+  .left {
+    position: relative; z-index: 1;
+    width: 50%;
+    padding: 72px 40px 56px 72px;
+    display: flex; flex-direction: column; justify-content: center;
   }
 
-  .container {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-  }
-
-  /* Left panel: text content */
-  .left-panel {
-    width: 520px;
-    padding: 60px 50px 50px 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .badge {
-    display: inline-block;
-    background: rgba(233,69,96,0.15);
-    border: 1px solid rgba(233,69,96,0.4);
-    color: #e94560;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 5px 14px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    width: fit-content;
+  .number {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 140px; font-weight: 700;
+    color: #FAFAF9; line-height: 0.85;
+    letter-spacing: -0.02em; margin-bottom: 10px;
   }
 
   .title {
-    font-size: 36px;
-    font-weight: 800;
-    line-height: 1.15;
-    margin-bottom: 8px;
-    background: linear-gradient(135deg, #ffffff 0%, #c8d6e5 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 26px; font-weight: 700;
+    color: #0EA5E9;
+    letter-spacing: 4px; text-transform: uppercase;
+    margin-bottom: 22px;
   }
 
   .subtitle {
-    font-size: 20px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 30px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 17px; color: #A1A1AA;
+    font-weight: 400; margin-bottom: 30px; line-height: 1.5;
   }
 
-  .skill-count {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
-    margin-bottom: 28px;
-  }
-  .skill-count .number {
-    font-size: 56px;
-    font-weight: 800;
-    color: #e94560;
-    line-height: 1;
-  }
-  .skill-count .label {
-    font-size: 16px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.7);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+  .badges {
+    display: flex; gap: 12px;
+    margin-bottom: 32px; flex-wrap: wrap;
   }
 
-  .tagline {
-    font-size: 13px;
-    color: rgba(255,255,255,0.4);
-    line-height: 1.6;
-    max-width: 380px;
+  .badge {
+    font-family: 'Inter', system-ui, sans-serif;
+    padding: 8px 20px; border-radius: 8px;
+    font-size: 13px; font-weight: 600;
+    background: transparent; border: 2px solid;
   }
 
-  /* Right panel: network graph */
-  .right-panel {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
+  .badge-1 { border-color: #F97316; color: #F97316; }
+  .badge-2 { border-color: #0EA5E9; color: #0EA5E9; }
+  .badge-3 { border-color: #8B5CF6; color: #8B5CF6; }
+  .badge-4 { border-color: #E94560; color: #E94560; }
+  .badge-5 { border-color: #34D399; color: #34D399; }
+
+  .versions {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; font-weight: 500;
+    color: #A1A1AA; letter-spacing: 0.05em;
+    display: flex; gap: 10px; align-items: center;
+  }
+  .versions .sep { color: #36363E; }
+
+  .right {
+    position: relative; z-index: 1;
+    width: 50%;
+    padding: 56px 56px 56px 16px;
+    display: flex; align-items: center;
   }
 
-  /* SVG connections */
-  .connections {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
+  .code-window {
+    width: 100%;
+    background: rgba(54, 54, 62, 0.8);
+    border: 1px solid rgba(250,250,249,0.06);
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+    max-height: 100%;
   }
-  .connections line {
-    stroke: rgba(233,69,96,0.3);
-    stroke-width: 1.5;
-  }
-  .connections line.highlight {
-    stroke: rgba(233,69,96,0.6);
-    stroke-width: 2;
+  .code-window * { overflow: hidden; }
+
+  .code-titlebar {
+    background: rgba(42, 42, 50, 0.95);
+    padding: 12px 16px;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid rgba(250,250,249,0.04);
   }
 
-  /* Technology nodes */
-  .node {
-    position: absolute;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-  }
-  .node-circle {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    color: #fff;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3), 0 0 40px var(--glow-color, rgba(233,69,96,0.2));
-    border: 2px solid rgba(255,255,255,0.15);
-  }
-  .node-label {
-    font-size: 10px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.7);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    white-space: nowrap;
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-red    { background: #DC2626; }
+  .dot-yellow { background: #F59E0B; }
+  .dot-green  { background: #16A34A; }
+
+  .code-filename {
+    color: #A1A1AA; font-size: 13px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500; margin-left: auto; margin-right: auto;
   }
 
-  /* Individual node colors */
-  .node-ifc .node-circle       { background: linear-gradient(135deg, #2ecc71, #27ae60); --glow-color: rgba(46,204,113,0.3); }
-  .node-ifcos .node-circle     { background: linear-gradient(135deg, #3498db, #2980b9); --glow-color: rgba(52,152,219,0.3); }
-  .node-blender .node-circle   { background: linear-gradient(135deg, #e67e22, #d35400); --glow-color: rgba(230,126,34,0.3); }
-  .node-freecad .node-circle   { background: linear-gradient(135deg, #e74c3c, #c0392b); --glow-color: rgba(231,76,60,0.3); }
-  .node-erpnext .node-circle   { background: linear-gradient(135deg, #3498db, #2471a3); --glow-color: rgba(52,152,219,0.3); }
-  .node-n8n .node-circle       { background: linear-gradient(135deg, #ea4b71, #d63384); --glow-color: rgba(234,75,113,0.3); }
-  .node-docker .node-circle    { background: linear-gradient(135deg, #0db7ed, #0993c7); --glow-color: rgba(13,183,237,0.3); }
-  .node-speckle .node-circle   { background: linear-gradient(135deg, #0a58ca, #084298); --glow-color: rgba(10,88,202,0.3); }
-  .node-qgis .node-circle      { background: linear-gradient(135deg, #589632, #3a7d0a); --glow-color: rgba(88,150,50,0.3); }
-  .node-threejs .node-circle   { background: linear-gradient(135deg, #049ef4, #0366a5); --glow-color: rgba(4,158,244,0.3); }
-  .node-webifc .node-circle    { background: linear-gradient(135deg, #9b59b6, #8e44ad); --glow-color: rgba(155,89,182,0.3); }
+  .code-body {
+    padding: 20px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; line-height: 1.7; color: #FAFAF9;
+  }
 
-  /* Node positions */
-  .node-ifc       { left: 310px; top: 250px; }
-  .node-ifcos     { left: 190px; top: 140px; }
-  .node-blender   { left: 100px; top: 280px; }
-  .node-freecad   { left: 160px; top: 420px; }
-  .node-erpnext   { left: 440px; top: 100px; }
-  .node-n8n       { left: 560px; top: 220px; }
-  .node-docker    { left: 520px; top: 400px; }
-  .node-speckle   { left: 380px; top: 430px; }
-  .node-qgis      { left: 60px;  top: 50px; }
-  .node-threejs   { left: 490px; top: 50px; }
-  .node-webifc    { left: 620px; top: 330px; }
+  .comment  { color: #A1A1AA; }
+  .keyword  { color: #E94560; }
+  .function { color: #0EA5E9; }
+  .string   { color: #34D399; }
+  .operator { color: #2563EB; }
+  .cursor {
+    display: inline-block; width: 8px; height: 17px;
+    background: #0EA5E9; vertical-align: text-bottom;
+  }
 
-  /* Bottom bar */
-  .bottom-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
-    background: rgba(0,0,0,0.3);
-    border-top: 1px solid rgba(255,255,255,0.06);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 60px;
-    z-index: 10;
+  .foundation {
+    position: absolute; bottom: 28px; right: 44px;
+    text-align: right; z-index: 1;
   }
-  .bottom-left {
-    display: flex;
-    align-items: center;
-    gap: 24px;
+  .foundation-name {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 18px; font-weight: 700; letter-spacing: 0.5px;
   }
-  .bottom-left span {
-    font-size: 11px;
-    color: rgba(255,255,255,0.35);
-    letter-spacing: 0.5px;
-  }
-  .version-tag {
-    background: rgba(233,69,96,0.15);
-    border: 1px solid rgba(233,69,96,0.3);
-    color: #e94560;
-    padding: 2px 10px;
-    border-radius: 10px;
-    font-size: 11px;
-    font-weight: 600;
-  }
-  .bottom-right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .bottom-right .logo-text {
-    font-size: 13px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.6);
-    letter-spacing: 0.5px;
-  }
-  .bottom-right .foundation {
-    font-weight: 400;
-    color: rgba(255,255,255,0.35);
+  .foundation-name .open { color: #FAFAF9; }
+  .foundation-name .aec  { color: #0EA5E9; }
+  .foundation-sub {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 11px; color: #A1A1AA;
+    font-weight: 500; letter-spacing: 1px;
   }
 </style>
 </head>
 <body>
-  <div class="glow-1"></div>
-  <div class="glow-2"></div>
-
-  <div class="container">
-    <!-- Left: Text Content -->
-    <div class="left-panel">
-      <div class="badge">Bridging Boundaries</div>
-      <div class="title">Cross-Technology<br>AEC Integration</div>
-      <div class="subtitle">Claude Skill Package</div>
-      <div class="skill-count">
-        <span class="number">15</span>
-        <span class="label">Deterministic<br>Skills</span>
+  <div class="banner">
+    <div class="top-strip"></div>
+    <div class="left">
+      <div class="number">15</div>
+      <div class="title">Deterministic Skills</div>
+      <div class="subtitle">for bridging AEC technology boundaries<br>where AI fails most</div>
+      <div class="badges">
+        <div class="badge badge-1">IFC / IfcOpenShell</div>
+        <div class="badge badge-2">Three.js / web-ifc</div>
+        <div class="badge badge-3">Speckle</div>
+        <div class="badge badge-4">QGIS / GIS</div>
+        <div class="badge badge-5">n8n / Docker</div>
       </div>
-      <div class="tagline">
-        IFC &harr; ERPNext &bull; BIM &harr; GIS &bull; Speckle &harr; Blender &bull; Docker &harr; AEC &bull; n8n &harr; Pipelines &bull; FreeCAD &harr; IFC
-      </div>
-    </div>
-
-    <!-- Right: Network Graph -->
-    <div class="right-panel">
-      <!-- SVG connection lines -->
-      <svg class="connections" viewBox="0 0 700 640" preserveAspectRatio="none">
-        <!-- IFC hub connections -->
-        <line x1="336" y1="276" x2="216" y2="166" class="highlight"/><!-- IFC-IfcOS -->
-        <line x1="336" y1="276" x2="126" y2="306"/><!-- IFC-Blender -->
-        <line x1="336" y1="276" x2="186" y2="446"/><!-- IFC-FreeCAD -->
-        <line x1="336" y1="276" x2="466" y2="126" class="highlight"/><!-- IFC-ERPNext -->
-        <line x1="336" y1="276" x2="586" y2="246"/><!-- IFC-n8n -->
-        <line x1="336" y1="276" x2="646" y2="356"/><!-- IFC-web-ifc -->
-        <line x1="336" y1="276" x2="406" y2="456"/><!-- IFC-Speckle -->
-
-        <!-- Cross connections -->
-        <line x1="216" y1="166" x2="126" y2="306"/><!-- IfcOS-Blender -->
-        <line x1="216" y1="166" x2="86" y2="76"/><!-- IfcOS-QGIS -->
-        <line x1="126" y1="306" x2="406" y2="456"/><!-- Blender-Speckle -->
-        <line x1="406" y1="456" x2="546" y2="426"/><!-- Speckle-Docker -->
-        <line x1="586" y1="246" x2="546" y2="426"/><!-- n8n-Docker -->
-        <line x1="516" y1="76" x2="646" y2="356"/><!-- Three.js-web-ifc -->
-        <line x1="516" y1="76" x2="586" y2="246"/><!-- Three.js-n8n -->
-        <line x1="86" y1="76" x2="126" y2="306"/><!-- QGIS-Blender -->
-        <line x1="186" y1="446" x2="216" y2="166"/><!-- FreeCAD-IfcOS -->
-        <line x1="466" y1="126" x2="586" y2="246"/><!-- ERPNext-n8n -->
-      </svg>
-
-      <!-- Technology Nodes -->
-      <div class="node node-ifc">
-        <div class="node-circle">IFC</div>
-        <div class="node-label">IFC</div>
-      </div>
-      <div class="node node-ifcos">
-        <div class="node-circle" style="font-size:9px">IfcOS</div>
-        <div class="node-label">IfcOpenShell</div>
-      </div>
-      <div class="node node-blender">
-        <div class="node-circle" style="font-size:9px">BLN</div>
-        <div class="node-label">Blender</div>
-      </div>
-      <div class="node node-freecad">
-        <div class="node-circle" style="font-size:9px">FrC</div>
-        <div class="node-label">FreeCAD</div>
-      </div>
-      <div class="node node-erpnext">
-        <div class="node-circle" style="font-size:9px">ERP</div>
-        <div class="node-label">ERPNext</div>
-      </div>
-      <div class="node node-n8n">
-        <div class="node-circle">n8n</div>
-        <div class="node-label">n8n</div>
-      </div>
-      <div class="node node-docker">
-        <div class="node-circle" style="font-size:9px">DKR</div>
-        <div class="node-label">Docker</div>
-      </div>
-      <div class="node node-speckle">
-        <div class="node-circle" style="font-size:9px">SPK</div>
-        <div class="node-label">Speckle</div>
-      </div>
-      <div class="node node-qgis">
-        <div class="node-circle" style="font-size:9px">QGIS</div>
-        <div class="node-label">QGIS</div>
-      </div>
-      <div class="node node-threejs">
-        <div class="node-circle" style="font-size:9px">3JS</div>
-        <div class="node-label">Three.js</div>
-      </div>
-      <div class="node node-webifc">
-        <div class="node-circle" style="font-size:8px">wIFC</div>
-        <div class="node-label">web-ifc</div>
+      <div class="versions">
+        IFC4/IFC4X3 <span class="sep">|</span> IfcOpenShell 0.8.x <span class="sep">|</span> Three.js r160+ <span class="sep">|</span> Speckle 2.x
       </div>
     </div>
-  </div>
-
-  <!-- Bottom Bar -->
-  <div class="bottom-bar">
-    <div class="bottom-left">
-      <span class="version-tag">v0.9.0</span>
-      <span>MIT License</span>
-      <span>Claude Code Skills</span>
+    <div class="right">
+      <div class="code-window">
+        <div class="code-titlebar">
+          <div class="dot dot-red"></div>
+          <div class="dot dot-yellow"></div>
+          <div class="dot dot-green"></div>
+          <span class="code-filename">crosstech_pipeline.py</span>
+        </div>
+        <div class="code-body">
+          <span class="comment"># IFC → ERPNext costing pipeline</span><br>
+          <span class="keyword">import</span> ifcopenshell<br>
+          <span class="keyword">from</span> ifcopenshell.util.element <span class="keyword">import</span> <span class="function">get_psets</span><br>
+          <br>
+          model = ifcopenshell.<span class="function">open</span>(<span class="string">"project.ifc"</span>)<br>
+          <br>
+          <span class="keyword">for</span> wall <span class="keyword">in</span> model.<span class="function">by_type</span>(<span class="string">"IfcWall"</span>):<br>
+          &nbsp;&nbsp;qtos = <span class="function">get_psets</span>(wall, qtos_only=<span class="keyword">True</span>)<br>
+          &nbsp;&nbsp;area = qtos[<span class="string">"Qto_WallBaseQuantities"</span>]<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<span class="string">"NetSideArea"</span>]<br>
+          <br>
+          &nbsp;&nbsp;<span class="comment"># Transform → ERPNext BOM</span><br>
+          &nbsp;&nbsp;<span class="function">create_bom_item</span>(<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;item=wall.<span class="function">Name</span>,<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;qty=area,<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;uom=<span class="string">"Square Meter"</span><br>
+          &nbsp;&nbsp;)<span class="cursor"></span>
+        </div>
+      </div>
     </div>
-    <div class="bottom-right">
-      <span class="logo-text">OpenAEC <span class="foundation">Foundation</span></span>
+    <div class="foundation">
+      <div class="foundation-name"><span class="open">Open</span><span class="aec">AEC</span></div>
+      <div class="foundation-sub">Foundation</div>
     </div>
   </div>
 </body>

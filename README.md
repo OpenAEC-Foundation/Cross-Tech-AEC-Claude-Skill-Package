@@ -1,5 +1,9 @@
 # Cross-Technology AEC Integration — Claude Skill Package
 
+<p align="center">
+  <img src="docs/social-preview.png" alt="15 Deterministic Skills for Cross-Technology AEC Integration" width="100%">
+</p>
+
 > **15 deterministic skills** for bridging AEC technology boundaries with Claude.
 > Each skill covers exactly ONE technology boundary. English-only. ALWAYS/NEVER deterministic language.
 
