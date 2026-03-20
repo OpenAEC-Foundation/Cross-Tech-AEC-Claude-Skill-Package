@@ -1,8 +1,8 @@
 # Cross-Tech AEC Skill Package — ROADMAP
 
-## Current Status: B7 DONE (Wave A) — Published v0.9.0
+## Current Status: COMPLETE — All 15 skills published (v1.0.0)
 
-> **NOTE:** This package bridges other AEC skill packages. 4 of 8 dependent packages are complete; 4 are skeleton repos. Core skills and automation skills can be built NOW.
+> All 15 cross-technology AEC skills are written, validated, and published.
 
 | Phase | Description | Status | Skills |
 |-------|-------------|--------|--------|
@@ -12,9 +12,9 @@
 | B2 | Deep Research (Vooronderzoek) | DONE | — |
 | B3 | Masterplan Refinement | DONE | — |
 | B4 | Topic-Specific Research | SKIPPED (covered in B2) | — |
-| B5 | Skill Creation (~5 batches) | DONE (Wave A) | 9/9 Wave A |
-| B6 | Validation | DONE (Wave A) | 9/9 PASS |
-| B7 | Publication | DONE (Wave A) | v0.9.0 released |
+| B5 | Skill Creation (~5 batches) | DONE | 15/15 |
+| B6 | Validation | DONE | 15/15 PASS |
+| B7 | Publication | DONE | v1.0.0 released |
 
 ## Skill Inventory (preliminary): ~15 skills
 

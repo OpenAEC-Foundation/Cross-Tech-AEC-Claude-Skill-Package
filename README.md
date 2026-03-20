@@ -1,6 +1,6 @@
 # Cross-Technology AEC Integration — Claude Skill Package
 
-> **9 deterministic skills** for bridging AEC technology boundaries with Claude.
+> **15 deterministic skills** for bridging AEC technology boundaries with Claude.
 > Each skill covers exactly ONE technology boundary. English-only. ALWAYS/NEVER deterministic language.
 
 [![Skill Quality](https://github.com/OpenAEC-Foundation/Cross-Tech-AEC-Claude-Skill-Package/actions/workflows/quality.yml/badge.svg)](https://github.com/OpenAEC-Foundation/Cross-Tech-AEC-Claude-Skill-Package/actions)
@@ -18,7 +18,7 @@ Each skill documents:
 
 ---
 
-## Skills (Wave A — 9 skills)
+## Skills (15 skills)
 
 ### Core (2 skills) — Foundation knowledge
 
@@ -27,11 +27,17 @@ Each skill documents:
 | `crosstech-core-ifc-schema-bridge` | IFC ↔ All formats | 266 |
 | `crosstech-core-coordinate-systems` | BIM local ↔ GIS global | 289 |
 
-### Implementation (4 skills) — Technology boundary bridges
+### Implementation (10 skills) — Technology boundary bridges
 
 | Skill | Boundary | Lines |
 |-------|----------|-------|
+| `crosstech-impl-ifc-to-webifc` | IfcOpenShell ↔ web-ifc | 349 |
+| `crosstech-impl-ifc-to-threejs` | IFC ↔ Three.js | 463 |
+| `crosstech-impl-speckle-blender` | Speckle ↔ Blender | 374 |
+| `crosstech-impl-speckle-revit` | Speckle ↔ Revit | 293 |
+| `crosstech-impl-qgis-bim-georef` | QGIS ↔ BIM/IFC | 435 |
 | `crosstech-impl-ifc-erpnext-costing` | IFC ↔ ERPNext | 363 |
+| `crosstech-impl-bim-web-viewer` | BIM/IFC ↔ Web browser | 363 |
 | `crosstech-impl-freecad-ifc-bridge` | FreeCAD ↔ IFC | 357 |
 | `crosstech-impl-n8n-aec-pipeline` | n8n ↔ AEC tools | 309 |
 | `crosstech-impl-docker-aec-stack` | Docker ↔ AEC services | 330 |
@@ -48,19 +54,6 @@ Each skill documents:
 | Skill | Boundary | Lines |
 |-------|----------|-------|
 | `crosstech-agents-aec-orchestrator` | Multi-hop pipelines | 328 |
-
-### Wave B (6 skills — coming soon)
-
-These skills are deferred until their dependent packages are complete:
-
-| Skill | Boundary | Blocked By |
-|-------|----------|-----------|
-| `crosstech-impl-ifc-to-webifc` | IfcOpenShell ↔ web-ifc | ThatOpen package |
-| `crosstech-impl-ifc-to-threejs` | IFC ↔ Three.js | Three.js package |
-| `crosstech-impl-speckle-blender` | Speckle ↔ Blender | Speckle package |
-| `crosstech-impl-speckle-revit` | Speckle ↔ Revit | Speckle package |
-| `crosstech-impl-qgis-bim-georef` | QGIS ↔ BIM/IFC | QGIS package |
-| `crosstech-impl-bim-web-viewer` | BIM/IFC ↔ Web browser | ThatOpen + Three.js |
 
 ---
 
@@ -94,7 +87,7 @@ This package is designed to work WITH other AEC skill packages:
 | [ERPNext](https://github.com/OpenAEC-Foundation/ERPNext_Anthropic_Claude_Development_Skill_Package) | 28 | ERP/costing |
 | [n8n](https://github.com/OpenAEC-Foundation/n8n-Claude-Skill-Package) | 21 | Workflow automation |
 | [Docker](https://github.com/OpenAEC-Foundation/Docker-Claude-Skill-Package) | — | Containerization |
-| **This package** | **9** | **Bridges between all of the above** |
+| **This package** | **15** | **Bridges between all of the above** |
 
 ---
 
@@ -102,19 +95,18 @@ This package is designed to work WITH other AEC skill packages:
 
 ```
                  Blender  IfcOpenShell  Speckle  QGIS  Three.js  web-ifc  FreeCAD  ERPNext  n8n  Docker
-Blender            —         (pkg)       B        —      —         —        —        —       —     —
-IfcOpenShell      (pkg)       —          —        —      —         B        A        A       —     A
-Speckle            B          —          —        —      —         —        —        —       A     A
-QGIS               —         B          —        —      —         —        —        —       —     A
-Three.js           —         —          —        —      —         B        —        —       —     —
-web-ifc            —         B          —        —      B         —        —        —       —     A
+Blender            —         (pkg)       A        —      —         —        —        —       —     —
+IfcOpenShell      (pkg)       —          —        —      —         A        A        A       —     A
+Speckle            A          —          —        —      —         —        —        —       A     A
+QGIS               —         A          —        —      —         —        —        —       —     A
+Three.js           —         —          —        —      —         A        —        —       —     —
+web-ifc            —         A          —        —      A         —        —        —       —     A
 FreeCAD            —         A          —        —      —         —        —        —       —     —
 ERPNext            —         A          —        —      —         —        —        —       A     A
 n8n                —         —          A        —      —         —        —        A       —     A
 Docker             —         A          A        A      —         A        —        A       A     —
 
-A = Wave A skill (available now)
-B = Wave B skill (coming soon)
+A = available skill
 (pkg) = covered by single-technology package
 ```
 
@@ -145,7 +137,7 @@ Cross-Tech-AEC-Claude-Skill-Package/
 │   └── validation/              # Quality reports
 └── skills/source/
     ├── crosstech-core/          # 2 foundation skills
-    ├── crosstech-impl/          # 4 implementation skills (+ 6 deferred)
+    ├── crosstech-impl/          # 10 implementation skills
     ├── crosstech-errors/        # 2 error diagnosis skills
     └── crosstech-agents/        # 1 orchestrator skill
 ```

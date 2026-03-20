@@ -4,6 +4,22 @@ All notable changes to the Cross-Tech AEC Skill Package will be documented in th
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.0.0] - 2026-03-20
+
+### Added
+- **6 Wave B skills** completing the full package (15/15):
+  - `crosstech-impl-ifc-to-webifc` (349 lines) — IfcOpenShell vs web-ifc API bridging
+  - `crosstech-impl-ifc-to-threejs` (463 lines) — IFC to Three.js scene rendering
+  - `crosstech-impl-bim-web-viewer` (363 lines) — End-to-end BIM web viewer pipeline
+  - `crosstech-impl-speckle-blender` (374 lines) — Speckle↔Blender data transport
+  - `crosstech-impl-speckle-revit` (293 lines) — Speckle↔Revit connector patterns
+  - `crosstech-impl-qgis-bim-georef` (435 lines) — QGIS↔BIM georeferencing
+- **2 additional research documents**:
+  - `vooronderzoek-web-visualization.md` (~3,500 words)
+  - `vooronderzoek-speckle-qgis.md` (4,543 words)
+- Social preview banner (`docs/social-preview-banner.html`)
+- Wave B validation report appended
+
 ## [0.9.0] - 2026-03-20
 
 ### Added

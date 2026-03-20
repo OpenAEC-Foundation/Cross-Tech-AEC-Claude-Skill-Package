@@ -339,3 +339,260 @@ All skills meet every structural, content, and cross-tech requirement defined in
 | Missing files | 0 |
 | Structural failures | 0 |
 | Content failures | 0 |
+
+---
+
+## Wave B Validation
+
+**Date**: 2026-03-20
+**Validator**: Claude Opus 4.6 (automated quality gate)
+**Skills validated**: 6 (Wave B complete set)
+**Overall result**: **6 PASS, 0 FAIL**
+
+---
+
+### Wave B Summary
+
+| # | Skill | Lines | Structural | Content | Cross-Tech | Result |
+|---|-------|-------|-----------|---------|-----------|--------|
+| 10 | crosstech-impl-ifc-to-webifc | 349 | PASS | PASS | PASS | **PASS** |
+| 11 | crosstech-impl-ifc-to-threejs | 463 | PASS | PASS | PASS | **PASS** |
+| 12 | crosstech-impl-bim-web-viewer | 363 | PASS | PASS | PASS | **PASS** |
+| 13 | crosstech-impl-speckle-blender | 374 | PASS | PASS | PASS | **PASS** |
+| 14 | crosstech-impl-speckle-revit | 293 | PASS | PASS | PASS | **PASS** |
+| 15 | crosstech-impl-qgis-bim-georef | 435 | PASS | PASS | PASS | **PASS** |
+
+---
+
+### 10. crosstech-impl-ifc-to-webifc
+
+| Check | Result | Notes |
+|-------|--------|-------|
+| SKILL.md exists | PASS | |
+| SKILL.md < 500 lines | PASS | 349 lines |
+| name: kebab-case, max 64 chars, crosstech- prefix | PASS | `crosstech-impl-ifc-to-webifc` (29 chars) |
+| description: folded block scalar `>` | PASS | |
+| description: max 1024 chars | PASS | |
+| license: MIT | PASS | |
+| compatibility field | PASS | |
+| metadata.author: OpenAEC-Foundation | PASS | |
+| metadata.version: "1.0" | PASS | |
+| references/methods.md exists + content | PASS | 268 lines |
+| references/examples.md exists + content | PASS | 422 lines |
+| references/anti-patterns.md exists + content | PASS | 313 lines |
+| .gitkeep deleted | PASS | Not present |
+| English only | PASS | |
+| Deterministic language (SKILL.md) | PASS | No hedging words |
+| Technology boundary: Side A, Side B, The Bridge | PASS | Side A: IfcOpenShell (Python, server-side), Side B: web-ifc (JavaScript/WASM, browser-side), The Bridge: Same IFC file, different access patterns |
+| Critical Rules / Critical Warnings | PASS | 8 ALWAYS/NEVER rules + 6 Critical Warnings |
+| Version numbers specified | PASS | IfcOpenShell 0.8.x, web-ifc 0.0.77, IFC4/IFC4X3 |
+| BOTH sides documented | PASS | Full API mapping table with 15+ operations compared |
+| Data loss documented | PASS | Geometry engine differences, coordinate system differences, memory lifecycle |
+| Directionality specified | PASS | Bidirectional (same file, different platforms); decision tree covers hybrid architectures |
+
+**Result: PASS**
+
+---
+
+### 11. crosstech-impl-ifc-to-threejs
+
+| Check | Result | Notes |
+|-------|--------|-------|
+| SKILL.md exists | PASS | |
+| SKILL.md < 500 lines | PASS | 463 lines |
+| name: kebab-case, max 64 chars, crosstech- prefix | PASS | `crosstech-impl-ifc-to-threejs` (30 chars) |
+| description: folded block scalar `>` | PASS | |
+| description: max 1024 chars | PASS | |
+| license: MIT | PASS | |
+| compatibility field | PASS | |
+| metadata.author: OpenAEC-Foundation | PASS | |
+| metadata.version: "1.0" | PASS | |
+| references/methods.md exists + content | PASS | 265 lines |
+| references/examples.md exists + content | PASS | 384 lines |
+| references/anti-patterns.md exists + content | PASS | 281 lines |
+| .gitkeep deleted | PASS | Not present |
+| English only | PASS | |
+| Deterministic language (SKILL.md) | PASS | No hedging words |
+| Technology boundary: Side A, Side B, The Bridge | PASS | Side A: IFC / web-ifc, Side B: Three.js, The Bridge: Two approaches (@thatopen/components or custom pipeline) |
+| Critical Rules / Critical Warnings | PASS | 6 NEVER + ALWAYS rules in Critical Warnings section |
+| Version numbers specified | PASS | Three.js r160+, web-ifc 0.0.77, @thatopen/components 3.x / 3.3.2 |
+| BOTH sides documented | PASS | IFC data model vs Three.js scene graph fully compared |
+| Data loss documented | PASS | Data Loss Summary table: geometry, materials, properties, relationships |
+| Directionality specified | PASS | "IFC -> Three.js (one-way rendering)" explicitly stated |
+
+**Result: PASS**
+
+---
+
+### 12. crosstech-impl-bim-web-viewer
+
+| Check | Result | Notes |
+|-------|--------|-------|
+| SKILL.md exists | PASS | |
+| SKILL.md < 500 lines | PASS | 363 lines |
+| name: kebab-case, max 64 chars, crosstech- prefix | PASS | `crosstech-impl-bim-web-viewer` (30 chars) |
+| description: folded block scalar `>` | PASS | |
+| description: max 1024 chars | PASS | |
+| license: MIT | PASS | |
+| compatibility field | PASS | |
+| metadata.author: OpenAEC-Foundation | PASS | |
+| metadata.version: "1.0" | PASS | |
+| references/methods.md exists + content | PASS | 211 lines |
+| references/examples.md exists + content | PASS | 342 lines |
+| references/anti-patterns.md exists + content | PASS | 258 lines |
+| .gitkeep deleted | PASS | Not present |
+| English only | PASS | |
+| Deterministic language (SKILL.md) | PASS | No hedging words |
+| Technology boundary: Side A, Side B, The Bridge | PASS | Side A: BIM/IFC Data, Side B: Web Browser, The Bridge: @thatopen/components (v3.x) |
+| Critical Rules / Critical Warnings | PASS | 6 NEVER/ALWAYS rules in Critical Warnings section |
+| Version numbers specified | PASS | @thatopen/components 3.x / 3.3.2, Three.js r160+, web-ifc 0.0.77 |
+| BOTH sides documented | PASS | BIM/IFC aspects vs Web Browser rendering fully compared |
+| Data loss documented | PASS | Fragments format conversion documented; property access via API only |
+| Directionality specified | PASS | "IFC -> Web browser (one-way rendering + interactive inspection)" explicitly stated |
+
+**Result: PASS**
+
+---
+
+### 13. crosstech-impl-speckle-blender
+
+| Check | Result | Notes |
+|-------|--------|-------|
+| SKILL.md exists | PASS | |
+| SKILL.md < 500 lines | PASS | 374 lines |
+| name: kebab-case, max 64 chars, crosstech- prefix | PASS | `crosstech-impl-speckle-blender` (31 chars) |
+| description: folded block scalar `>` | PASS | |
+| description: max 1024 chars | PASS | |
+| license: MIT | PASS | |
+| compatibility field | PASS | |
+| metadata.author: OpenAEC-Foundation | PASS | |
+| metadata.version: "1.0" | PASS | |
+| references/methods.md exists + content | PASS | 230 lines |
+| references/examples.md exists + content | PASS | 298 lines |
+| references/anti-patterns.md exists + content | PASS | 218 lines |
+| .gitkeep deleted | PASS | Not present |
+| English only | PASS | |
+| Deterministic language (SKILL.md) | PASS | No hedging words |
+| Technology boundary: Side A, Side B, The Bridge | PASS | Side A: Speckle, Side B: Blender, The Bridge: Speckle Blender Connector |
+| Critical Rules / Critical Warnings | PASS | 5 NEVER/ALWAYS rules in Critical Warnings + additional ALWAYS rules in text |
+| Version numbers specified | PASS | Speckle 2.x/3.x, Blender 3.x/4.x, SpecklePy 2.x |
+| BOTH sides documented | PASS | Full Speckle data model (Base, Collection, RenderMaterial) + Blender data model (bpy.data) |
+| Data loss documented | PASS | Round-trip data integrity section: what survives vs what is lost; material property mapping table |
+| Directionality specified | PASS | Bidirectional (Send + Receive); IFC via Bonsai is one-way only |
+
+**Result: PASS**
+
+---
+
+### 14. crosstech-impl-speckle-revit
+
+| Check | Result | Notes |
+|-------|--------|-------|
+| SKILL.md exists | PASS | |
+| SKILL.md < 500 lines | PASS | 293 lines |
+| name: kebab-case, max 64 chars, crosstech- prefix | PASS | `crosstech-impl-speckle-revit` (29 chars) |
+| description: folded block scalar `>` | PASS | |
+| description: max 1024 chars | PASS | |
+| license: MIT | PASS | |
+| compatibility field | PASS | |
+| metadata.author: OpenAEC-Foundation | PASS | |
+| metadata.version: "1.0" | PASS | |
+| references/methods.md exists + content | PASS | 255 lines |
+| references/examples.md exists + content | PASS | 300 lines |
+| references/anti-patterns.md exists + content | PASS | 161 lines |
+| .gitkeep deleted | PASS | Not present |
+| English only | PASS | |
+| Deterministic language (SKILL.md) | PASS | No hedging words |
+| Technology boundary: Side A, Side B, The Bridge | PASS | Side A: Speckle (Base Objects), Side B: Revit (Families, Parameters, Elements), The Bridge: Speckle Revit Connector |
+| Critical Rules / Critical Warnings | PASS | 6 NEVER/ALWAYS rules in Critical Warnings + ALWAYS rules throughout |
+| Version numbers specified | PASS | Speckle 2.x/3.x, Revit 2022-2026, .NET 4.8 / .NET 8.0 |
+| BOTH sides documented | PASS | Full Speckle object model + Revit Family/Type/Parameter model |
+| Data loss documented | PASS | Round-Trip Data Integrity section with 2 tables (survives vs lost) |
+| Directionality specified | PASS | "Bidirectional with asymmetric fidelity"; send pipeline (5 stages) + receive pipeline (6 stages) |
+
+**Result: PASS**
+
+---
+
+### 15. crosstech-impl-qgis-bim-georef
+
+| Check | Result | Notes |
+|-------|--------|-------|
+| SKILL.md exists | PASS | |
+| SKILL.md < 500 lines | PASS | 435 lines |
+| name: kebab-case, max 64 chars, crosstech- prefix | PASS | `crosstech-impl-qgis-bim-georef` (31 chars) |
+| description: folded block scalar `>` | PASS | |
+| description: max 1024 chars | PASS | |
+| license: MIT | PASS | |
+| compatibility field | PASS | |
+| metadata.author: OpenAEC-Foundation | PASS | |
+| metadata.version: "1.0" | PASS | |
+| references/methods.md exists + content | PASS | 233 lines |
+| references/examples.md exists + content | PASS | 315 lines |
+| references/anti-patterns.md exists + content | PASS | 244 lines |
+| .gitkeep deleted | PASS | Not present |
+| English only | PASS | |
+| Deterministic language (SKILL.md) | PASS | No hedging words |
+| Technology boundary: Side A, Side B, The Bridge | PASS | Side A: QGIS (GIS World), Side B: BIM/IFC (Building World), The Bridge: IfcOpenShell Extraction + pyproj CRS Transformation |
+| Critical Rules / Critical Warnings | PASS | 10 ALWAYS/NEVER rules in Critical Rules section + 7 Critical Warnings |
+| Version numbers specified | PASS | QGIS 3.34 LTR, IfcOpenShell 0.8.x, pyproj 3.x, GDAL 3.9, EPSG codes |
+| BOTH sides documented | PASS | Full QGIS/PyQGIS concepts + BIM/IFC georeferencing concepts |
+| Data loss documented | PASS | Data Loss at This Boundary table: 12 data types with preserved/lost status |
+| Directionality specified | PASS | "Primarily IFC -> QGIS. Limited QGIS -> IFC is possible via enh2xyz()" |
+
+**Result: PASS**
+
+---
+
+### Wave B Hedging Word Scan
+
+#### SKILL.md files (all 6)
+**Result: PASS** -- Zero hedging words found in any SKILL.md file.
+
+#### Reference files (all 18)
+**Result: PASS** -- Zero hedging words found in any reference file.
+
+---
+
+### Wave B .gitkeep Status
+
+All 6 Wave B skill directories: **No .gitkeep files present** (PASS).
+
+---
+
+### Wave B Final Verdict
+
+**6 / 6 skills PASS all validation checks.**
+
+All Wave B skills meet every structural, content, and cross-tech requirement defined in REQUIREMENTS.md.
+
+### Wave B Statistics
+
+| Metric | Value |
+|--------|-------|
+| Total SKILL.md lines | 2,277 (avg 380 per skill) |
+| Total reference files | 18 (3 per skill x 6 skills) |
+| Total reference lines | ~4,339 |
+| Hedging words in SKILL.md | 0 |
+| Hedging words in references | 0 |
+| Missing files | 0 |
+| Structural failures | 0 |
+| Content failures | 0 |
+
+---
+
+## Combined Totals (Wave A + Wave B)
+
+| Metric | Wave A | Wave B | Total |
+|--------|--------|--------|-------|
+| Skills validated | 9 | 6 | **15** |
+| Skills PASS | 9 | 6 | **15** |
+| Skills FAIL | 0 | 0 | **0** |
+| SKILL.md lines | 3,048 | 2,277 | **5,325** |
+| Reference files | 27 | 18 | **45** |
+| Reference lines | ~7,915 | ~4,339 | **~12,254** |
+| Hedging words (SKILL.md) | 0 | 0 | **0** |
+| Hedging words (references) | 3 | 0 | **3** |
+| Missing files | 0 | 0 | **0** |
+
+**All 15 skills PASS. The complete package is validated and ready for publication.**
