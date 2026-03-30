@@ -1,0 +1,39 @@
+{
+  "name": "@openaec/cross-tech-aec-claude-skill-package",
+  "version": "1.1.0",
+  "description": "9 deterministic Claude skills for cross-technology AEC integration — bridging IFC, ERPNext, FreeCAD, n8n, Docker, and more",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OpenAEC-Foundation/Cross-Tech-AEC-Claude-Skill-Package"
+  },
+  "keywords": [
+    "agent-skills",
+    "agentskills",
+    "claude-skills",
+    "aec",
+    "bim",
+    "ifc",
+    "crosstech-aec",
+    "deterministic"
+  ],
+  "agents": {
+    "skills": [
+      { "name": "crosstech-agents-aec-orchestrator", "path": "./skills/source/crosstech-agents/crosstech-agents-aec-orchestrator" },
+      { "name": "crosstech-core-coordinate-systems", "path": "./skills/source/crosstech-core/crosstech-core-coordinate-systems" },
+      { "name": "crosstech-core-ifc-schema-bridge", "path": "./skills/source/crosstech-core/crosstech-core-ifc-schema-bridge" },
+      { "name": "crosstech-errors-conversion", "path": "./skills/source/crosstech-errors/crosstech-errors-conversion" },
+      { "name": "crosstech-errors-coordinate-mismatch", "path": "./skills/source/crosstech-errors/crosstech-errors-coordinate-mismatch" },
+      { "name": "crosstech-impl-bim-web-viewer", "path": "./skills/source/crosstech-impl/crosstech-impl-bim-web-viewer" },
+      { "name": "crosstech-impl-docker-aec-stack", "path": "./skills/source/crosstech-impl/crosstech-impl-docker-aec-stack" },
+      { "name": "crosstech-impl-freecad-ifc-bridge", "path": "./skills/source/crosstech-impl/crosstech-impl-freecad-ifc-bridge" },
+      { "name": "crosstech-impl-ifc-erpnext-costing", "path": "./skills/source/crosstech-impl/crosstech-impl-ifc-erpnext-costing" },
+      { "name": "crosstech-impl-ifc-to-threejs", "path": "./skills/source/crosstech-impl/crosstech-impl-ifc-to-threejs" },
+      { "name": "crosstech-impl-ifc-to-webifc", "path": "./skills/source/crosstech-impl/crosstech-impl-ifc-to-webifc" },
+      { "name": "crosstech-impl-n8n-aec-pipeline", "path": "./skills/source/crosstech-impl/crosstech-impl-n8n-aec-pipeline" },
+      { "name": "crosstech-impl-qgis-bim-georef", "path": "./skills/source/crosstech-impl/crosstech-impl-qgis-bim-georef" },
+      { "name": "crosstech-impl-speckle-blender", "path": "./skills/source/crosstech-impl/crosstech-impl-speckle-blender" },
+      { "name": "crosstech-impl-speckle-revit", "path": "./skills/source/crosstech-impl/crosstech-impl-speckle-revit" }
+    ]
+  }
+}
