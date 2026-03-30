@@ -7,7 +7,8 @@ description: >
   Covers Speckle Base to Blender mesh/curve conversion, material mapping,
   collection structure, Bonsai/IFC data through Speckle, and SpecklePy API.
   Keywords: Speckle, Blender, SpecklePy, connector, BIM data, mesh conversion,
-  material mapping, Bonsai, IFC through Speckle, send receive.
+  material mapping, Bonsai, IFC through Speckle, send receive, BIM to Blender,
+  render BIM model, Blender visualization, share model.
 license: MIT
 compatibility: "Designed for Claude Code. Covers Speckle 2.x/3.x, Blender 3.x/4.x, SpecklePy 2.x."
 metadata:

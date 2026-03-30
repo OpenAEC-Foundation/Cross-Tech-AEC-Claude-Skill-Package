@@ -7,7 +7,8 @@ description: >
   Covers Speckle Revit connector, family type mapping, parameter synchronization,
   view-based filtering, DirectShape receive, and round-trip data integrity.
   Keywords: Speckle, Revit, connector, BIM elements, family types, parameters,
-  DirectShape, round-trip, send receive, Revit API.
+  DirectShape, round-trip, send receive, Revit API, share Revit model,
+  Revit to web, sync Revit data, collaborate on BIM.
 license: MIT
 compatibility: "Designed for Claude Code. Covers Speckle 2.x/3.x, Revit 2022-2026."
 metadata:

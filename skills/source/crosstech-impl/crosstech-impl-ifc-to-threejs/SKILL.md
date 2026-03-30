@@ -7,7 +7,8 @@ description: >
   Covers web-ifc-three, @thatopen/components, mesh conversion, material mapping,
   raycasting for selection, property panels, and the Fragments optimization format.
   Keywords: IFC, Three.js, web viewer, BIM visualization, web-ifc-three,
-  @thatopen/components, raycasting, scene graph, IFC viewer, WebGL.
+  @thatopen/components, raycasting, scene graph, IFC viewer, WebGL,
+  load IFC in Three.js, 3D BIM web, click on building element.
 license: MIT
 compatibility: "Designed for Claude Code. Covers Three.js r160+, web-ifc 0.0.77, @thatopen/components 3.x."
 metadata:

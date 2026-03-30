@@ -8,7 +8,8 @@ description: >
   Covers IFC4/IFC4X3 entity hierarchy, property sets, quantity sets, relationships,
   and how each concept maps to representations in target tools.
   Keywords: IFC, schema, mapping, IfcOpenShell, web-ifc, property sets, quantity sets,
-  IfcProduct, IfcRelDefinesByProperties, BIM data conversion, IFC4, IFC4X3.
+  IfcProduct, IfcRelDefinesByProperties, BIM data conversion, IFC4, IFC4X3,
+  IFC entities, property lost during conversion, IFC data structure.
 license: MIT
 compatibility: "Designed for Claude Code. Covers IFC4 (ISO 16739-1:2018) and IFC4X3 (ISO 16739-1:2024)."
 metadata:

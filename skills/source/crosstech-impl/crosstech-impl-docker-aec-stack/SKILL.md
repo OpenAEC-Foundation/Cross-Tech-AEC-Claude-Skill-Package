@@ -7,7 +7,8 @@ description: >
   Covers Dockerfiles for IfcOpenShell, Speckle Server deployment, QGIS Server,
   web-ifc workers, and multi-service docker-compose orchestration.
   Keywords: Docker, AEC, IfcOpenShell container, Speckle Server, QGIS Server,
-  docker-compose, web-ifc, containerization, AEC deployment.
+  docker-compose, web-ifc, containerization, AEC deployment, deploy BIM tools,
+  dockerize IFC processing, self-host Speckle.
 license: MIT
 compatibility: "Designed for Claude Code. Requires Docker Engine 24+ and Docker Compose v2."
 metadata:

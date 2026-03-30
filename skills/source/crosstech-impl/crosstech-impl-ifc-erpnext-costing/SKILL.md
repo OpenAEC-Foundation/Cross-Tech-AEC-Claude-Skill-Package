@@ -7,7 +7,8 @@ description: >
   Covers IfcElementQuantity extraction via IfcOpenShell, ERPNext BOM structure,
   IFC classification to Item Group mapping, and the complete quantity-to-cost pipeline.
   Keywords: IFC costing, BOM, ERPNext, IfcElementQuantity, quantity takeoff,
-  IfcOpenShell, Frappe API, cost estimation, IFC to ERP.
+  IfcOpenShell, Frappe API, cost estimation, IFC to ERP, extract quantities,
+  building cost estimate, IFC to bill of materials, material takeoff.
 license: MIT
 compatibility: "Designed for Claude Code. Requires IfcOpenShell 0.8.x and ERPNext v15."
 metadata:

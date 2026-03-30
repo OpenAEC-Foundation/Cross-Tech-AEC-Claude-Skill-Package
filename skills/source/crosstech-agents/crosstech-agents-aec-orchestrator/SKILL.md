@@ -7,7 +7,8 @@ description: >
   Routes to the correct boundary skill(s) for each hop, validates data integrity
   between steps, and handles error recovery.
   Keywords: AEC pipeline, multi-hop, workflow orchestration, technology selection,
-  cross-tool integration, BIM pipeline, data integrity validation.
+  cross-tool integration, BIM pipeline, data integrity validation,
+  connect AEC tools, chain BIM workflow, which tool to use.
 license: MIT
 compatibility: "Designed for Claude Code. Orchestrates all Cross-Tech AEC skills."
 metadata:

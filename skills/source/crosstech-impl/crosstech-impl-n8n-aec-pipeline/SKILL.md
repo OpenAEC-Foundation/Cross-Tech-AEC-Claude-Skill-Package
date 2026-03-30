@@ -8,7 +8,8 @@ description: >
   Covers n8n v1.x nodes for AEC, webhook triggers, Execute Command for IfcOpenShell,
   Speckle/ERPNext API integration, and pipeline patterns.
   Keywords: n8n, workflow automation, AEC pipeline, IFC processing, Speckle webhook,
-  ERPNext API, model validation, n8n nodes, Execute Command.
+  ERPNext API, model validation, n8n nodes, Execute Command, automate BIM workflow,
+  trigger on model upload, no-code AEC automation.
 license: MIT
 compatibility: "Designed for Claude Code. Requires n8n v1.x with AEC service endpoints."
 metadata:

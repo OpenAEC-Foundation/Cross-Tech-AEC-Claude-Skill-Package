@@ -7,7 +7,8 @@ description: >
   CRS mismatches, and datum transformation errors.
   Covers coordinate debugging across Blender, Three.js, QGIS, IFC, Revit, and FreeCAD.
   Keywords: wrong location, coordinate mismatch, Y-up Z-up, scale error, EPSG,
-  georeferencing missing, axis swap, unit mismatch, CRS error, datum shift.
+  georeferencing missing, axis swap, unit mismatch, CRS error, datum shift,
+  model in wrong place, building too small, upside down, rotated model.
 license: MIT
 compatibility: "Designed for Claude Code. Covers all AEC tools with coordinate systems."
 metadata:

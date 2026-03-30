@@ -7,7 +7,8 @@ description: >
   Covers IfcOpenShell 0.8.x vs web-ifc 0.0.77 API differences, property access,
   geometry extraction, streaming large models, and hybrid architecture patterns.
   Keywords: IfcOpenShell, web-ifc, WebAssembly, IFC parser, property access,
-  geometry extraction, server-side, browser-side, WASM, IFC conversion.
+  geometry extraction, server-side, browser-side, WASM, IFC conversion,
+  parse IFC in browser, Python vs JavaScript IFC, IfcOpenShell vs web-ifc.
 license: MIT
 compatibility: "Designed for Claude Code. Covers IfcOpenShell 0.8.x (Python) and web-ifc 0.0.77 (JavaScript/WASM)."
 metadata:

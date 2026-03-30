@@ -7,7 +7,8 @@ description: >
   Covers FreeCAD 1.0+ BIM Workbench, NativeIFC mode, IfcOpenShell integration,
   import/export workflows, and round-trip editing patterns.
   Keywords: FreeCAD, IFC, NativeIFC, BIM Workbench, IfcOpenShell, round-trip,
-  FreeCAD BIM, IFC import, IFC export, Arch module.
+  FreeCAD BIM, IFC import, IFC export, Arch module, edit IFC in FreeCAD,
+  open IFC file, FreeCAD BIM modeling, free BIM software.
 license: MIT
 compatibility: "Designed for Claude Code. Requires FreeCAD 1.0+ with BIM Workbench and IfcOpenShell 0.8.x."
 metadata:

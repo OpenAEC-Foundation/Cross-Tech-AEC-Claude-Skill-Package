@@ -8,7 +8,8 @@ description: >
   Covers the full pipeline: IFC parsing, Three.js rendering, UI interaction,
   section planes, annotations, and performance optimization for large models.
   Keywords: BIM viewer, web viewer, IFC viewer, @thatopen/components, Three.js,
-  section plane, property panel, model navigation, web-ifc, BIM web application.
+  section plane, property panel, model navigation, web-ifc, BIM web application,
+  view IFC in browser, 3D building viewer, online BIM viewer.
 license: MIT
 compatibility: "Designed for Claude Code. Covers @thatopen/components 3.x, Three.js r160+, web-ifc 0.0.77."
 metadata:

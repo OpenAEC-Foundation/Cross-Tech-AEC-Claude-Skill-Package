@@ -8,7 +8,8 @@ description: >
   Covers IfcOpenShell, web-ifc, Blender, FreeCAD, Three.js, Speckle, and ERPNext
   conversion failures with specific error messages and fixes.
   Keywords: IFC conversion error, missing geometry, lost properties, schema mismatch,
-  BREP to mesh, property loss, encoding error, IFC import failure.
+  BREP to mesh, property loss, encoding error, IFC import failure, IFC won't import,
+  data missing after conversion, geometry broken, IFC export error.
 license: MIT
 compatibility: "Designed for Claude Code. Covers all AEC technology boundaries."
 metadata:

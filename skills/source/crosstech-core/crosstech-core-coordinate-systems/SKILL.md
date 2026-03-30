@@ -8,7 +8,8 @@ description: >
   Covers IfcMapConversion, IfcProjectedCRS, EPSG codes, pyproj/PROJ transformations,
   and axis conventions for Blender, Three.js, QGIS, Revit, FreeCAD, and IFC.
   Keywords: CRS, EPSG, coordinate system, georeferencing, IfcMapConversion,
-  IfcProjectedCRS, pyproj, PROJ, Y-up, Z-up, BIM to GIS, map conversion.
+  IfcProjectedCRS, pyproj, PROJ, Y-up, Z-up, BIM to GIS, map conversion,
+  model at wrong location, coordinate transform, which EPSG code.
 license: MIT
 compatibility: "Designed for Claude Code. Covers IFC4/IFC4X3 georeferencing, PROJ 9.x, pyproj 3.x."
 metadata:

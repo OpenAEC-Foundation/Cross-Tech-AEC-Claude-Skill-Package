@@ -8,7 +8,8 @@ description: >
   Covers IfcOpenShell+PyQGIS extraction, CRS transformation via IfcMapConversion,
   GeoPackage export, and three integration approaches (GDAL, IfcOpenShell, Speckle).
   Keywords: QGIS, BIM, georeferencing, IFC, GIS, CRS, IfcMapConversion, PyQGIS,
-  footprint extraction, GeoPackage, coordinate transformation, map overlay.
+  footprint extraction, GeoPackage, coordinate transformation, map overlay,
+  building on map, IFC to GIS, place model on earth.
 license: MIT
 compatibility: "Designed for Claude Code. Covers QGIS 3.34 LTR, IfcOpenShell 0.8.x, pyproj 3.x."
 metadata:
